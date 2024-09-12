@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>ストップウォッチ</title>
+  </head>
+  <body>
+    <h1 id="stopwatch">00:00:00</h1>
+    <button id="start">スタート</button>
+    <button id="stop">ストップ</button>
+    <button id="reset">リセット</button>
+
+    <script>
+      // 変数の初期化
+      let startTime = null;
+      let elapsedTime = 0;
+      let timerId = null;
+      // ストップウォッチの要素を取得
+      const stopwatchElement = document.getElementById("stopwatch");
+
+      function updateStopwatch() {
+        // 現在の日時を取得
+        const now = new Date();
+        
+        // 現在時刻とスタート時刻の差分を経過時間として積算
+        elapsedTime += now - startTime;
+        // スタート時間を現在時刻で上書き
+        startTime = now;
+        // 商と余りを使い分け整数化して、経過時間の分・秒・ミリ秒を計算
+        const minutes = Math.floor(elapsedTime / (60 * 1000));
+        const seconds = Math.floor((elapsedTime % (60 * 1000)) / 1000);
+        const milliseconds = elapsedTime % 1000;
+        // 計算によって求められた分・秒・ミリ秒を取得したストップウォッチ要素に表示
+        stopwatchElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(3, '0')}`;
+        // 指定した時間(10ミリ秒)後にupdateStopwatch関数が動作するようにタスクをタスクキューに追加してタスク番号をtimerIdに格納
+        timerId = setTimeout(updateStopwatch, 10);
+      }
+      // スタートボタンにイベント処理を追加
+      document.getElementById("start").addEventListener("click", () => {
+        // タスク番号を格納しているtimerIdに何か番号が入っている場合は何もしない
+        if (timerId) return;
+        // 現在の日時をstartTimeとして取得
+        startTime = new Date();
+        // updateStopwatch関数を実行
+        updateStopwatch();
+      });
+      // ストップボタンにイベント処理を追加
+      document.getElementById("stop").addEventListener("click", () => {
+        // タスクキューのタスク番号を指定してタイマー処理を終了
+        clearTimeout(timerId);
+        // timerIdを初期化
+        timerId = null;
+      });
+      
+      document.getElementById("reset").addEventListener("click", () => {
+        // タスクキューのタスク番号を指定してタイマー処理を終了
+        clearTimeout(timerId);
+        // 変数を初期化
+        elapsedTime = 0;
+        stopwatchElement.textContent = "00:00:00";
+        timerId = null;
+      });
+    </script>
+  </body>
+</html>

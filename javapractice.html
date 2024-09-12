@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>おみくじ</title>
+    </head>
+    <body>
+       <h2>運試し</h2>
+       <div>
+            <div>
+
+                <button id="button" style="width:9em;height:3em;font-size:large;">御神籤を引く</button> 
+            </div>
+            <p style="font-size: 20px;">>>>>>>>>>>>>>>>>>>>></p>
+            <p id="result" style="font-size: 30px;width:300px;text-align:left;"></p>
+            <p style="font-size: 20px;"><<<<<<<<<<<<<<<<<<<<</p>
+       </div>
+       <script>
+            window.onload = function () {
+                //御神籤
+                const list = ["大吉","吉","中吉","小吉","末吉","凶","大凶"];
+
+                document.getElementById("button").onclick = function() {
+                    var random = Math.floor(Math.random() * list.length);
+                    document.getElementById("result").textContent = list[random];
+                    (button).disabled=true;
+                    
+                }
+
+            }
+       </script>
+    </body>
+</html>

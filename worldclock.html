@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WorldClobk</title>
+    </head>
+    <body>
+        <div id="localTime">現地時刻：</div>
+        <div id="tokyoTime">東京時刻：</div>
+        <div id="newyorkTime">ニューヨーク時刻</div>
+        <div id="londonTime">ロンドン時刻：</div>
+
+        <script>
+            const localTimeElement = document.getElementById("localTime");
+            const tokyoTimeElement = document.getElementById("tokyoTime");
+            const newyorkTimeElement = document.getElementById("newyorkTime");
+            const londonTimeElement = document.getElementById("londonTime");
+
+            function updateTime(){
+                const now = new Date();
+
+                localtimeElment.textContent = `現地時刻: ${now.toLocalString()}`;
+                tokyotimeElment.textContent = `東京時刻: ${now.toLocalString("ja-JP",{ timeZone: "Asia/Tokyo" })}`;
+                newyorktimeElment.textContent = `ニューヨーク時刻: ${now.toLocalString("en-US",{timeZone: "America/New_York"})}`;
+                londontimeElment.textContent = `ロンドン時刻: ${now.toLocalString("en-GB",{timeZone: "Europe/London"})}`;
+
+            }
+            setInterval(updateTime, 1000);
+
+        </script>
+    </body>
+</html>

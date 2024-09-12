@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カウントダウンタイマー</title>
+</head>
+<body>
+  <h1 id="timer">00:00:00</h1>
+
+  <script>
+    // 現在の日時を取得してそれに10分(10 * 60 * 1000)をプラスして、日付オブジェクトとしてendTimeに格納
+    const endTime = new Date(Date.now() + 10 * 60 * 1000);
+    // timer要素を取得
+    const timerElement = document.getElementById("timer");
+
+    function updateTimer() {
+      // 現在の日時を取得
+      const now = new Date();
+      // 残り時間を計算
+      const remainingTime = endTime - now;
+      // 残り時間が0に達した時の処理
+      if (remainingTime <= 0) {
+        timerElement.textContent = "00:00:00";
+        return;
+      }
+      // 商と余りを使い分け整数化して、時・分・秒を計算
+      const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+      const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
+      // 計算によって求められた時・分・秒を取得したtimer要素に表示
+      timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      // 1秒後にupdateTimer関数を実行するようにタスクをタスクキューに追加
+      setTimeout(updateTimer, 1000);
+    }
+    // updateTimer関数を実行
+    updateTimer();
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+@import url(sanitize.css);
+
+body{
+    background-color: #fafafa;
+}
+
+h1{
+    /* text-align: center; */
+    font-size: 24px;
+    margin: 0;
+    color:blue;
+}
+.content{
+    background-color: #fff;
+    /* 横幅 */
+    width: 600px;
+    /* margin=余白  10px=上下　auto=左右(お互いの中央値を勝手に取る)*/
+    margin: 10px auto;
+    /* border=外枠の線 */
+    border: 1px solid #d1d1d1;
+    /* padding=内側の余白 */
+    padding: 30px;
+}
+
+input{
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px;
+}
+button{
+    width: 100%;
+    background-color: #2096f3;
+    color: #fff;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+}
+
+.control{
+    text-align: right;
+    margin-bottom: 3em;
+}
+
+label{
+    display: block;
+    margin-bottom: .5em;
+}
+
+.required{
+    margin-left: .3em;
+    color: #f33 ;
+    font-size: .9em;
+    padding: 3px;
+    background-color: #fee;
+    font-weight: bold;
+}

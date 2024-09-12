@@ -1,0 +1,23 @@
+.content{
+    width: 600px;
+    margin: 10px auto;
+}
+input{
+    width: 100%;
+    padding: 10px;
+}
+textarea{
+    width: 85%;
+    padding: 10%;
+}
+label{
+    display: block;
+    margin: 10px;
+}
+button{
+    float: right;
+    width: 10em;
+    padding: 8px;
+    background-color: black;
+    color: #fff;
+}

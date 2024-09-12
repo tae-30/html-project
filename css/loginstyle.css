@@ -1,0 +1,29 @@
+@import url(sanitize.css);
+
+.content{
+    width: 600px;
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+    padding: 50px;
+}
+
+h1{
+    text-align: center;
+}
+
+.control{
+    margin: 10px 0;
+}
+
+input{
+    font-size: 1.2em;
+    width: 40%;
+    padding: 8px;
+}
+
+button{
+    float: right;
+    padding: 10px;
+    background-color: #2096f3;
+    color: #fff
+}

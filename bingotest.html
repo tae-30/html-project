@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビンゴ大会テスト</title>
+</head>
+<body>
+    <input type="button" id="result" value="">
+    <br>
+    <br>
+    <!-- createElementで作成したinputタグのbuttonがここで表示される -->
+    <div id="container"></div>
+    <br>
+    <!-- start stopボタンを表示するためのdiv要素 -->
+    <div id="button_container"></div>
+
+
+
+    <script>
+        // 番号をリストに
+        var bingo_num=[]
+        // 1~75までroop処理
+        for (var i=1; i<=75; i++){
+            // bingo_num配列にString型で追加する
+            bingo_num.push(i.toString());
+        }
+
+
+
+        // リストの中身をボタンに変換するためのコンテナ(containerがappendChildの親要素になる)
+        var container=document.getElementById("container");
+        // ここでリストの中身をボタンに変換
+        // forEachでnum引数にリストの中身を一つずつ渡す　indexにはforEachの第二引数が自動的に渡される
+        bingo_num.forEach(function(num,index){
+            // input要素を生成する
+            var button=document.createElement("input");
+                // typeとvalueを指定
+                button.type="button";
+                // valueの中身はnum引数に渡されたリストの中身が指定される
+                button.value=num;
+                button.id=num
+                // 親要素containerに小要素としてbuttonを追加する
+                container.appendChild(button);
+            // ボタンが15個作成されるごとに<br>タグを追加し改行する
+            if ((index +1)%15==0){
+                container.appendChild(document.createElement("br"));
+            }
+        });
+
+
+
+        // start_stopボタンを作成するための親要素buton_container
+        var button_container=document.getElementById("button_container");
+        // input要素を生成
+        var start_stop_button=document.createElement("input");
+            start_stop_button.type="button";
+            start_stop_button.value="START"
+            // onclickで関数呼び出し
+            start_stop_button.onclick=function(){
+                // valueがSTARTの場合STOPに書き換え
+                if (start_stop_button.value=="START"){
+                    start_stop_button.value="STOP";
+                // 引数を1として関数を呼び出す
+                start_stop(1);
+                start_displaying_numbers();
+                }
+
+                else { //(value=STOP)のときSTARTに書き換え
+                    start_stop_button.value="START";
+                //引数を0として関数呼び出し 
+                start_stop(0);
+                stop_displaying_numbers();
+                }
+            };
+            // 親要素に追加
+            button_container.appendChild(start_stop_button);
+
+        
+
+
+
+
+        // startボタンが押された時の処理をする関数
+        function start_stop(value){
+            // startの場合
+            if (value==0){
+                // ボタンの要素番号取得 
+                // Math.floor=小数点切り捨て　Math.random()=ランダムな浮動小数を返す　bingo_num.length=bingo_numの長さ
+                var result_num=Math.floor(Math.random()*bingo_num.length);
+                // bingo_numのresult_num番目の値をselected_numに代入
+                var selected_num=bingo_num[result_num]
+                // id="result"の場所のvalueに出力
+                document.getElementById("result").value=selected_num;
+                // resultに出力された値と同じ値のボタンが無効化される
+                document.getElementById(selected_num).disabled=true;
+                // resultに出力された値と同じ値のボタンを空白に
+                document.getElementById(selected_num).value="    "
+                // 一度出力された番号は削除し除外する
+                bingo_num.splice(result_num,1);
+                }
+            
+        }
+
+        var intervalId;
+        // startが押された場合stopが押されるまで高速で番号が切り替え表示される関数
+        function start_displaying_numbers() {
+            // setIntervalに渡す無名関数を作成
+             intervalId = setInterval(function() {
+                var result_num = Math.floor(Math.random() * bingo_num.length);
+                var selected_num = bingo_num[result_num];
+                // 50ミリ秒間隔で切り替わる
+                document.getElementById("result").value = selected_num;
+            }, 50);
+    }
+        // intervalを停止する関数
+        function stop_displaying_numbers(){
+            clearInterval(intervalId)
+        }
+    </script>
+</body>
+</html>

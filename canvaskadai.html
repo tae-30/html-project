@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas3</title>
+    </head>
+    <body>
+        <canvas width="500" height="500" id="canvas001">canvas要素をサポートしていません</canvas> 
+        <br>
+        <button onclick="DRW()">描画</button>
+        <br>
+        <img id="CPY">
+        <script>
+            function DRW(){
+                const canvas001 = document.getElementById("canvas001")
+                if (canvas001.getContext) {
+                        const context001 = canvas001.getContext("2d");//2次元描画
+                        //ひし形
+                        context001.beginPath();
+                        
+                                         //横 //縦
+                        context001.moveTo(200,115);//開始点を指定
+                        context001.lineTo(300,190);//線を引く座標を指定
+                        context001.lineTo(100,190);
+                        context001.moveTo(200,290);//開始点を指定
+                        context001.lineTo(300,190);//線を引く座標を指定
+                        context001.lineTo(100,190);
+                        
+                        context001.closePath();//パスを閉じる
+                        context001.fill();//線の描画
+                        //円
+                        context001.beginPath();//パスの作成
+                        context001.arc(147,147,63,0,Math.PI * 2,true);//正円のパス
+                        context001.stroke();
+                        context001.fill();
+                        context001.beginPath();//パスの作成
+                        context001.arc(253,147,63,0,Math.PI * 2,true);//正円のパス
+                        context001.stroke();
+                        context001.fill();
+
+                        var IM_SRC=canvas001.toDataURL();
+                        document.getElementById("CPY").src=IM_SRC;
+                
+                }
+            }
+        </script>
+    </body>
+</html>

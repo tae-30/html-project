@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#444444">
+    <title>kadokawaドワンゴ情報学院1年生制作ビンゴ大会</title>
+</head>
+<body>
+     <div class="whole"> <!-- 全体　-->
+        <!-- result表示タグ -->
+        <div id="heading" class="heading"></div> <!-- 選出数字、見出し部分-->
+            <ul id="number" class="number"> <!--画数数字配列-->
+                <li class="hit">01</li>
+                <li class="hit">02</li>
+                <li class="hit">03</li>
+                <li class="hit">04</li>
+                <li class="hit">05</li>
+                <li class="hit">06</li>
+                <li class="hit">07</li>
+                <li class="hit">08</li>
+                <li class="hit">09</li>
+                <li class="hit">10</li>
+                <li class="hit">11</li>
+                <li class="hit">12</li>
+                <li class="hit">13</li>
+                <li class="hit">14</li>
+                <li class="hit">15</li>
+                <li class="hit">16</li>
+                <li class="hit">17</li>
+                <li class="hit">18</li>
+                <li class="hit">19</li>
+                <li class="hit">20</li>
+                <li class="hit">21</li>
+                <li class="hit">22</li>
+                <li class="hit">23</li>
+                <li class="hit">24</li>
+                <li class="hit">25</li>
+                <li class="hit">26</li>
+                <li class="hit">27</li>
+                <li class="hit">28</li>
+                <li class="hit">29</li>
+                <li class="hit">30</li>
+                <li class="hit">31</li>
+                <li class="hit">32</li>
+                <li class="hit">33</li>
+                <li class="hit">34</li>
+                <li class="hit">35</li>
+                <li class="hit">36</li>
+                <li class="hit">37</li>
+                <li class="hit">38</li>
+                <li class="hit">39</li>
+                <li class="hit">40</li>
+                <li class="hit">41</li>
+                <li class="hit">42</li>
+                <li class="hit">43</li>
+                <li class="hit">44</li>
+                <li class="hit">45</li>
+                <li class="hit">46</li>
+                <li class="hit">47</li>
+                <li class="hit">48</li>
+                <li class="hit">49</li>
+                <li class="hit">50</li>
+                <li class="hit">51</li>
+                <li class="hit">52</li>
+                <li class="hit">53</li>
+                <li class="hit">54</li>
+                <li class="hit">55</li>
+                <li class="hit">56</li>
+                <li class="hit">57</li>
+                <li class="hit">58</li>
+                <li class="hit">59</li>
+                <li class="hit">60</li>
+                <li class="hit">61</li>
+                <li class="hit">62</li>
+                <li class="hit">63</li>
+                <li class="hit">64</li>
+                <li class="hit">65</li>
+                <li class="hit">66</li>
+                <li class="hit">67</li>
+                <li class="hit">68</li>
+                <li class="hit">69</li>
+                <li class="hit">70</li>
+                <li class="hit">71</li>
+                <li class="hit">72</li>
+                <li class="hit">73</li>
+                <li class="hit">74</li>
+                <li class="hit">75</li>
+            </ul>
+        <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->>
+            <input type="button" id="button" value="START" onclick="start_stop()">
+            <audio id="sound-pass" ></audio>
+        </div>
+        <audio id="sound-play" preload="auto">
+            <source src="start.mp3" type="audio/mp3">
+        </audio>
+        <audio id="sound-pause" preload="auto">
+            <source src="pause.mp3" type="audio/mp3">
+        </audio>
+    </div>
+<script>
+    function start_stop(value) {
+        // 全てのli要素を取得
+        var nums = document.querySelectorAll('.hit');
+        // ランダムなインデックスを生成
+        var randomIndex = Math.floor(Math.random() * nums.length);
+        // ランダムに選ばれた要素
+        var selectedItem = nums[randomIndex];
+
+        document.getElementById("heading").innerHTML=selectedItem.textContent;
+
+    }
+</script>
+</body>
+</html>

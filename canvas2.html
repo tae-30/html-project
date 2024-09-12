@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas2</title>
+    </head>
+    <body>
+        <canvas width="500" height="500" id="canvas001">canvas要素をサポートしていません</canvas> 
+        <script>
+            window.onload = function() {
+                const canvas001 = document.getElementById("canvas001")
+                if (canvas001.getContext) {
+                        const context001 = canvas001.getContext("2d");//2次元描画
+                        //三角形
+                        context001.beginPath();
+                        context001.moveTo(100,0);//開始点を指定
+                        context001.lineTo(200,90);//線を引く座標を指定
+                        context001.lineTo(0,90);
+                        context001.closePath();//パスを閉じる
+                        context001.fill();//線の描画 
+                }
+            };
+        </script>
+    </body>
+</html>

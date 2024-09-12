@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>お問い合わせフォーム</title>
+    </head>
+    <img src=“images/alt” alt="会社ロゴ">
+    <h1>お問い合わせフォーム</h1>
+    <p>お問い合わせは下記のフォームから送信してください。</p>
+    <body>
+        <form>
+        <table border="1">
+            
+             <th>
+                <label for="user_name_id">お名前</label>
+            </th>
+            <td>
+                <input type="text" id="user_name_id" name="user_name">
+            </td>
+            <tr>
+                <th>性別</th>
+                <td>
+                    <input type="radio" name="gender" value="男性">男性
+                    <input type="radio" name="gender" value="女性">女性
+                </td>
+                </tr>
+            <tr>
+                <th>お住まいの地域</th>
+                <td>
+                    <select name="area">
+                        <option value="北海道">北海道</option>
+                        <option value="東北">東北</option>
+                        <option value="関東">関東</option>
+                        <option value="中部">中部</option>
+                        <option value="近畿">近畿</option>
+                        <option value="中国">中国</option>
+                        <option value="四国">四国</option>
+                        <option value="九州">九州</option>
+                        <option value="沖縄">沖縄</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="address_id">メールアドレス</label>
+                </th>
+                <td>
+                    <input type="email" id="address_id" name="mail_address">
+                </td>
+            </tr>
+            <tr>
+                <th>お問い合わせ区分</th>
+                <td>
+                    <input type="checkbox" name="class" value="相談"　id="soudan">
+                    <label for="soudan">相談</label>
+
+                    <input type="checkbox" name="class" value="苦情"　id="kujou">
+                    <label for="kujou">苦情</label>
+
+                    <input type="checkbox" name="class" value="改善要望"　id="youbou">
+                    <label for="youbou">改善要望</label>
+
+                    <input type="checkbox" name="class" value="通報"　id="tuhou">
+                    <label for="tuhou">通報</label>
+
+                    <input type="checkbox" name="class" value="警告"　id="keikoku">
+                    <label for="keikoku">警告</label>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="otoiawase_id">お問い合わせ内容</label>
+
+                    </th>
+                <td>
+                    <textarea id="otoiawase_id" name="example" rows="10" cols="60">
+                    </textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="入力確認画面へ">
+            </form>
+        <h4>Ⓒ 2024 株式会社〇〇 All Rights Reserved.</h4></form>
+    </body>
+</html>

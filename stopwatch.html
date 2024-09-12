@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <h1 id="stopwatch">00:00:00</h1>
+    <button id="start">スタート</button>
+    <button id="stop">ストップ</button>
+    <button id="reset">リセット</button>
+
+    <script>
+        let startTime = null;
+        let elapsadTime = 0;
+        let timerId = null;
+        const stopwatchElement = document.getElementById("stopwatch");
+
+        function updateStopwatch(){
+            const now = new Date();
+            elapsedTime += now - startTime;
+            staetTime = now;
+            const minutes = Math.floor(elapsedTime / (60*1000));
+            const seconds = Math.floor((elapsedTime % (60*1000))/1000);
+            const milliseconds = elapsedTime % 1000;
+            stopwatchElement.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}:
+            ${String(milliseconds).padStart(3,'0')}`;
+            timerId = setTimeout(updateStopwatch,10);
+        }
+        document.getElementById("start").addEventostner("click", () =>{
+            if (timerId) return;
+            startTime = new Date();
+            updateStopwatch();
+        });
+
+        document.getElementById("stop").addEventListener("click",() =>{
+            if (timerId) return;
+            startTime = new Date();
+            updateStopwatch();
+
+        });
+
+        document.getElementById("reset").addEventListener("click",() =>{
+            if (timerId) return;
+            startTime = new Date();
+            updateStopwatch();
+
+        });
+    </script>
+</body>
+</html>

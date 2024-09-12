@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ワールドクロック</title>
+</head>
+<body>
+  <div id="localTime">現地時刻: </div>
+  <div id="tokyoTime">東京時刻: </div>
+  <div id="newYorkTime">ニューヨーク時刻: </div>
+  <div id="londonTime">ロンドン時刻: </div>
+
+  <script>
+    // 要素を取得
+    const localTimeElement = document.getElementById("localTime");
+    const tokyoTimeElement = document.getElementById("tokyoTime");
+    const newYorkTimeElement = document.getElementById("newYorkTime");
+    const londonTimeElement = document.getElementById("londonTime");
+
+    function updateTime() {
+      // 現在の日時を取得
+      const now = new Date();
+      // それぞれのロケールに応じた文字列に変換して取得した要素に表示
+      localTimeElement.textContent = `現地時刻: ${now.toLocaleString()}`;
+      tokyoTimeElement.textContent = `東京時刻: ${now.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`;
+      newYorkTimeElement.textContent = `ニューヨーク時刻: ${now.toLocaleString("en-US", { timeZone: "America/New_York" })}`;
+      londonTimeElement.textContent = `ロンドン時刻: ${now.toLocaleString("en-GB", { timeZone: "Europe/London" })}`;
+    }
+    // 1秒毎にupdateTime関数を実行
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>

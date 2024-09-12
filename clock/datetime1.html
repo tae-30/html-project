@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダーと時計１</title>
+</head>
+<body>
+    <div id="calendar"></div>
+    <div id="clock"></div>
+    <script>
+        function updateClock(){
+            // 現在の日時を取得
+            const now = new Date();
+            // 日付の要素を取得
+            const calendarElement = document.getElementById("calendar");
+            // 日付の要素に日にちを表示
+            calendarElement.textContent = `${now.toLocaleDateString()}`;
+
+            // 時、分、秒を取得
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            // 時、分、秒が1桁の場合は0を追加
+            const displayHours = hours.toString().padStart(2,"0");
+            const displayMinutes = minutes.toString().padStart(2,"0");
+            const displaySeconds = seconds.toString().padStart(2,"0");
+            // 時計の要素を取得
+            const clockElement = document.getElementById("clock");
+            // 時計の要素に時刻を表示
+            clockElement.textContent = `${displayHours}:${displayMinutes}:${displaySeconds}`;
+            // 1秒後にupdateClock関数を実行するようにタスクをタスクキューに追加
+            setTimeout(updateClock, 1000);
+        }
+        // updateClockを実行
+        updateClock();
+    </script>
+</body>
+</html>

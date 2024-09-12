@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/High_and_Low.css">
+    <title>High&Low</title>
+</head>
+<body>
+    <img id="Card_img_Before" src="" width="100" height="150">
+    *
+    <img id="Card_img_After" src="img/ura.jpg" width="100" height="150">
+
+    <p id="Before">場にあるカードは7</p>
+    <p id="After">次のカードは場にあるカードより高いか低いか考えてみよう!</p>
+
+    <input id="button1" type="button" value="High" onclick="High_Low(1);"/>
+
+    <input id="button2" type="button" value="Low" onclick="High_Low(0);"/>
+    <p id="text"></p>
+    <p id="text2"></p>
+    <button type="reset" onclick="replay();">再プレイ</button>
+
+    <script>
+
+        // A~Kの画像を変数に格納
+        var imglist= [
+            "img/a.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.png","img/8.jpg","img/9.jpg","img/10.jpg","img/j.jpg","img/q.jpg","img/k.jpg"
+    ]
+        // デフォルトで表示される画像
+        var img_select2= Math.floor(Math.random()*imglist.length);
+
+        // document.getElementById("Card_img_Before").src = imglist[img_select2];
+
+        // 高低判定をする関数を作成　(valueに引数を格納し判定する)
+        function High_Low(value){
+            // ランダムに画像の要素番号を取得
+            var img_select= Math.floor(Math.random()*imglist.length);
+
+            // ランダムに選択した画像をAfterの方に表示
+            document.getElementById("Card_img_After").src = imglist[img_select];
+            // ボタンが押された時無効化する
+            document.getElementById("button1").disabled = true;
+            document.getElementById("button2").disabled = true;
+
+            // Highが押された場合
+            if (value==1){
+                // 画像要素番号が6以上の場合
+                if (img_select>6){
+                    document.getElementById("text").innerHTML = "あなたの勝ちです";
+                }
+                // 6以下の場合
+                else if (img_select<6){
+                    document.getElementById("text").innerHTML = "あなたの負けです";
+                }
+                // それ以外(==6の場合)
+                else{
+                    document.getElementById("text").innerHTML = "ドロー";
+                }
+            }
+            // Lowが押された場合
+            else if (value==0){
+                if (img_select<6){
+                    document.getElementById("text").innerHTML = "あなたの勝ちです";
+                }
+                else if (img_select>6){
+                    document.getElementById("text").innerHTML = "あなたの負けです";
+                }
+                else{
+                    document.getElementById("text").innerHTML = "ドロー";
+                }
+            }
+        }
+        // 再プレイボタンが押された場合の処理関数
+        function replay(){
+            // 勝敗メッセージを空白に戻す
+            document.getElementById("text").innerHTML="";
+            // 無効化したボタンを有効に
+            document.getElementById("button1").disabled = false;
+            document.getElementById("button2").disabled = false;
+            // Afterの画像を初期表示に戻す
+            document.getElementById("Card_img_After").src = "img/ura.jpg";
+            document.getElementById("Card_img_Before").src = imglist[img_select2];
+
+
+
+
+        }
+    </script>
+</body>
+</html>

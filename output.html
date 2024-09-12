@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="utf=8">
+        <title>mark</title>
+    </head>
+    <body>
+        <h1>outputを使った計算</h1>
+        <form onsubmit="return false" oninput="C.value=A.valueAsNumber + B.valueAsNumber">
+            <input name="A" type="number"> +
+            <input name="B" type="number"> =
+            <output name="C" for="A B">計算結果を出力</output>
+            <p>
+                <input type="submit" value="送信する">
+                <input type="reset" value="リセット">
+            </p>
+        </form>
+    </body>
+</html>

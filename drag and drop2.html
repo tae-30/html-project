@@ -1,0 +1,51 @@
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ドラッグ＆ドロップして要素を移動</title>
+        <style>
+            #RCV{
+                width: 300px;
+                height: 300px;
+                background-color: #f00;
+            }
+            #SRC{
+                width: 150px;
+                height: 80px;
+                background-color: #aaa;
+            }
+        </style>
+        <script>
+            function init(){
+                const RCV=document.getElementById("RCV");
+                RCV.addEventListener("dragover",DOVER,true);
+                RCV.addEventListener("drop",DRP,true);
+            }
+            function DOVER(evt){
+                evt.preventDefault();
+            }
+            function DRP(evt){
+                evt.preventDefault();
+                // textに格納された文字を取得してIDNに格納
+                const IDN=evt.dataTransfer.getData("text");
+                // IDNといidを持つ要素を取得
+                const OBJ=document.getElementById(IDN);
+                // 取得した要素をイベントが発生した要素の子要素として設定する
+                // 同じ要素名が存在する場合は既存要素を削除するので移動したように見える
+                evt.currentTarget.appendChild(OBJ);
+            }
+            function DRS(evt){
+                // イベント発生時のターゲットとなる要素のid属性値をtextにset（格納）する
+                evt.dataTransfer.setData("text",evt.target.id);
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <!-- 下記の〇〇に具体的な画像の名前を入れてください -->
+        <img id="IM" src="img/sokutei.jpg" width="150" ondragstart="DRS(event)">
+        <!-- divやspanをドラッグ可能にしてイベントを発生させる -->
+        <div id="SRC" draggable="true" ondragstart="DRS(event)">あいうえお</div>
+        <p>下の四角に<span id="SPM" draggable="true" ondragstart="DRS(event)">ドロップ</span>してください</p>
+        <div id="RCV"></div>
+    </body>
+</html>

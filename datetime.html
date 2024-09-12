@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DateTime</title>
+    </head>
+    <body>
+    <div id="clock"></div> 
+    <script>
+        function updateClock(){
+            const now = new Date();//今現在の日時を取得できる
+            const hours = now.getHours();//時間を取得してくる
+            const minutes = now.getMinutes();//分を取得
+            const seconds = now.getSeconds();//秒を取得
+
+            const calenderElement = document.getElementById("calender");
+            calenderElement.textContent = `${now.toLocaleDateString()}:`
+            const displayHours = hours.toString().padStart(2,"0");//2桁に満たないところは0で埋める処理
+            const displayMinutes = minutes.toString().padStart(2,"0");
+            const displaySeconds = seconds.toString().padStart(2,"0");
+
+            const clockElement = document.getElementById("clock");
+            clockElement.textContent = `${displayHours}:${displayMinutes}:${displaySeconds}`;
+            setTimeout(updateClock,1000);
+        }
+        updateClock();
+    </script>
+    </body>
+</html>

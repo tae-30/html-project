@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カレンダーと時計２</title>
+</head>
+<body>
+  <div id="calendar">今日の日付: </div>
+  <div id="clock">現在時刻: </div>
+
+  <script>
+    // 日付の要素を取得
+    const calendarElement = document.getElementById("calendar");
+    // 時計の要素を取得
+    const clockElement = document.getElementById("clock");
+
+    function updateDateTime() {
+      // 現在の日時を取得
+      const now = new Date();
+
+      // 日付の要素に日にちを表示
+      calendarElement.textContent = `今日の日付: ${now.toLocaleDateString()}`;
+      // 時計の要素に時刻を表示
+      clockElement.textContent = `現在時刻: ${now.toLocaleTimeString()}`;
+    }
+    // 1秒ごとにupdateDateTime関数を実行
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
