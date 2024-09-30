@@ -88,7 +88,7 @@
                 <li class="hit">75</li>
             </ul>
         <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->>
-            <input type="button" id="button" value="START" onclick="start_stop()">
+            <input type="button" id="button" value="START" onclick="start_stop(1)">
             <audio id="sound-pass" ></audio>
         </div>
         <audio id="sound-play" preload="auto">
@@ -100,6 +100,7 @@
     </div>
 <script>
     function start_stop(value) {
+        if (value==1){
         // 全てのli要素を取得
         var nums = document.querySelectorAll('.hit');
         // ランダムなインデックスを生成
@@ -108,6 +109,9 @@
         var selectedItem = nums[randomIndex];
 
         document.getElementById("heading").innerHTML=selectedItem.textContent;
+        nums.splice(randomIndex,1);
+
+        }
 
     }
 </script>
