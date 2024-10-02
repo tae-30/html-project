@@ -107,10 +107,9 @@
         var randomIndex = Math.floor(Math.random() * nums.length);
         // ランダムに選ばれた要素
         var selectedItem = nums[randomIndex];
-
+        // 抽選結果を表示
         document.getElementById("heading").innerHTML=selectedItem.textContent;
-        nums.splice(randomIndex,1);
-
+        
         }
 
     }
