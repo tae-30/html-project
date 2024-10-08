@@ -2,17 +2,67 @@ h1 {
     font-size: large;
     margin-top: 30px;
     margin-left: 60px;
+    padding-left: 65px;
 }
 
-img {
-    width: 760px;
+.img1 {
+    width: 650px;
     height: 300px;
     margin-left: 60px;
     background-size: cover;
+    padding-left: 65px;
+    
 }
 
 h2 {
     font-size: large;
     text-align: center;
+    margin-top: 30px;
+    padding-top: 50px;
+}
+
+.title_block{
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-bottom: 50px;
+    background-color: gainsboro;
+}
+section{
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: 2px solid black;
+    padding: 10px;
+}
+p{
+    text-align: center;
+}
+
+img{
+    width: 240px;
+}
+
+.img_block{
     margin-top: 50px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.img_block2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h3{
+    font-size: large;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.title_block2{
+    background-color: gainsboro;
+    margin-left: 200px;
+    margin-right: 200px;
 }
