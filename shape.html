@@ -133,7 +133,7 @@
                 var nums = document.querySelectorAll('.hit');
                 var randomIndex = Math.floor(Math.random() * nums.length);
                 var selectedItem = nums[randomIndex];
-                // 50ミリ秒間隔で切り替わる
+                // 50ミリ秒間隔で切り替わる処理
                 document.getElementById("heading").innerHTML = selectedItem.textContent;
             }, 50);
     }
