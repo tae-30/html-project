@@ -114,19 +114,19 @@
         if (value==0){
         // 全てのli要素を取得し、配列に変換
             var nums = Array.from(document.querySelectorAll('.hit'));
-            // document.getElementById("test").innerHTML=nums.textContent;
         // ランダムなインデックスを生成
             var randomIndex = Math.floor(Math.random() * nums.length);
+            // var randomIndex2 = Math.floor(Math.random() * nums_inside.length);
         // ランダムに選ばれた要素
             var selectedItem = nums[randomIndex];
+            // var selectedItem2 = nums[randomIndex];
         // 抽選結果を表示
             document.getElementById("heading").innerHTML=selectedItem.textContent;
             // 一度選ばれた番号を除外
-            selectedItem.remove();
+            selectedItem2.remove();
             document.getElementById("button").value="START"
             document.getElementById("button").onclick= function(){start_stop(1)};
             stop_displaying_numbers();
-        
         }
     }
 
