@@ -91,6 +91,8 @@
             </ul>
         <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->>
             <input type="button" id="button" value="START" onclick="start_stop(1)">
+            <p id="end"></p>
+            <!-- <input type="button" id="test" value=""> -->
             <audio id="sound-pass" ></audio>
         </div>
         <audio id="sound-play" preload="auto">
@@ -101,7 +103,8 @@
         </audio>
     </div>
 <script>
-
+    // 抽選済番号を格納するからのリスト
+    var selected_numbers=[];
     
     function start_stop(value) {
         // startの場合
@@ -114,21 +117,30 @@
         if (value==0){
         // 全てのli要素を取得し、配列に変換
             var nums = Array.from(document.querySelectorAll('.hit'));
+            // 全ての番号が抽選済みの場合
+            if (selected_numbers.length === nums.length) {
+                document.getElementById("end").innerHTML="全ての番号が抽選されました！"
+                return; // 抽選を停止
+            }
+
         // ランダムなインデックスを生成
-            var randomIndex = Math.floor(Math.random() * nums.length);
-            // var randomIndex2 = Math.floor(Math.random() * nums_inside.length);
+            do{
+                var randomIndex = Math.floor(Math.random() * nums.length);
         // ランダムに選ばれた要素
-            var selectedItem = nums[randomIndex];
-            // var selectedItem2 = nums[randomIndex];
-        // 抽選結果を表示
+                var selectedItem = nums[randomIndex];
+                // whileの処理がTrueならdoに戻る
+            }while(selected_numbers.includes(selectedItem.textContent));
+        // 抽選済みでなければ抽選結果を表示
             document.getElementById("heading").innerHTML=selectedItem.textContent;
             // 一度選ばれた番号を除外
-            selectedItem2.remove();
+            selected_numbers.push(selectedItem.textContent);
+            // ボタンをstartに戻し引数も1に戻す
             document.getElementById("button").value="START"
             document.getElementById("button").onclick= function(){start_stop(1)};
             stop_displaying_numbers();
+            }
         }
-    }
+    
 
     function start_displaying_numbers() {
             // setIntervalに渡す無名関数を作成
