@@ -63,7 +63,7 @@
                 <li class="hit">34</li>
                 <li class="hit">35</li>
                 <li class="hit">36</li>
-                <li class="hit">37</li>
+                <li class="hit free">37</li>
                 <li class="hit">38</li>
                 <li class="hit">39</li>
                 <li class="hit">40</li>
@@ -103,7 +103,7 @@
                 <li class="hit">74</li>
                 <li class="hit">75</li>
             </ul>
-        <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->>
+        <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->
             <input type="button" id="button" value="START" onclick="start_stop(1)">
             <p id="end"></p>
             <!-- <input type="button" id="test" value=""> -->
@@ -122,7 +122,7 @@
     
     function start_stop(value) {
         // 全ての番号が抽選済みの場合
-        if (selected_numbers.length == 75) {
+        if (selected_numbers.length == 74) {
                 document.getElementById("end").innerHTML="全ての番号が抽選されました！";
                 return; // 抽選を停止
             }
@@ -139,7 +139,7 @@
         // stopの場合
         if (value==0){
         // 全てのli要素を取得し、配列に変換
-            var nums = Array.from(document.querySelectorAll('.hit'));
+            var nums = Array.from(document.querySelectorAll('.hit:not(.free)'));
 
         // ランダムなインデックスを生成
             do{
@@ -149,7 +149,22 @@
                 // whileの処理がTrueならdoに戻る
             }while(selected_numbers.includes(selectedItem.textContent));
         // 抽選済みでなければ抽選結果を表示
-            document.getElementById("heading").innerHTML=selectedItem.textContent;
+            if(parseInt(selectedItem.textContent)<=15){
+                document.getElementById("heading").innerHTML="B"+selectedItem.textContent;
+            }
+            else if(parseInt(selectedItem.textContent)>=16 && parseInt(selectedItem.textContent)<=30){
+                document.getElementById("heading").innerHTML="I"+selectedItem.textContent;
+            }
+            else if(parseInt(selectedItem.textContent)>=31 && parseInt(selectedItem.textContent)<=45){
+                document.getElementById("heading").innerHTML="N"+selectedItem.textContent;
+            }
+            else if(parseInt(selectedItem.textContent)>=46 && parseInt(selectedItem.textContent)<=60){
+                document.getElementById("heading").innerHTML="G"+selectedItem.textContent;
+            }
+            else if(parseInt(selectedItem.textContent)>=61 && parseInt(selectedItem.textContent)<=75){
+                document.getElementById("heading").innerHTML="O"+selectedItem.textContent;
+            }
+            // document.getElementById("heading").innerHTML=selectedItem.textContent;
             // 一度選ばれた番号を除外
             selected_numbers.push(selectedItem.textContent);
             // 新しい背景色を反映させるためにclassを追加
@@ -165,7 +180,7 @@
     function start_displaying_numbers() {
             // setIntervalに渡す無名関数を作成
              intervalId = setInterval(function() {
-                var nums = document.querySelectorAll('.hit');
+                var nums = document.querySelectorAll('.hit:not(.free)');
                 var randomIndex = Math.floor(Math.random() * nums.length);
                 var selectedItem = nums[randomIndex];
                 // 50ミリ秒間隔で切り替わる処理
