@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#444444">
     <link rel="stylesheet" href="css/css.css">
+
+    <style>
+
+    .number li.hit {
+        background: #004c8c;
+        color: #fff;
+        border-radius: 50px;
+    }
+
+    .number li.selected{
+        background: black;
+        border-radius: 50px;
+    }
+    </style>
     <title>kadokawaドワンゴ情報学院1年生制作ビンゴ大会</title>
 </head>
 <body>
@@ -107,25 +121,25 @@
     var selected_numbers=[];
     
     function start_stop(value) {
+        // 全ての番号が抽選済みの場合
+        if (selected_numbers.length == 75) {
+                document.getElementById("end").innerHTML="全ての番号が抽選されました！";
+                return; // 抽選を停止
+            }
         // startの場合
         if (value==1){
+            
             document.getElementById("button").value="STOP"
             document.getElementById("button").onclick= function(){start_stop(0)};
             start_displaying_numbers();
+
         }
+
+
         // stopの場合
         if (value==0){
         // 全てのli要素を取得し、配列に変換
             var nums = Array.from(document.querySelectorAll('.hit'));
-            // 全ての番号が抽選済みの場合
-            if (selected_numbers.length === nums.length) {
-<<<<<<< HEAD
-                document.getElementById("end").innerHTML="全ての番号が抽選されました！";
-=======
-                document.getElementById("end").innerHTML="全ての番号が抽選されました！"
->>>>>>> 3cf3381300aa2ad0ca72c284cab6650ff5d28947
-                return; // 抽選を停止
-            }
 
         // ランダムなインデックスを生成
             do{
@@ -138,6 +152,8 @@
             document.getElementById("heading").innerHTML=selectedItem.textContent;
             // 一度選ばれた番号を除外
             selected_numbers.push(selectedItem.textContent);
+            // 新しい背景色を反映させるためにclassを追加
+            selectedItem.classList.add("selected");
             // ボタンをstartに戻し引数も1に戻す
             document.getElementById("button").value="START"
             document.getElementById("button").onclick= function(){start_stop(1)};
