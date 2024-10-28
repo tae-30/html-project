@@ -117,7 +117,7 @@
         </audio>
     </div>
 <script>
-    // 抽選済番号を格納するからのリスト
+    // 抽選済番号を格納する空のリスト
     var selected_numbers=[];
     
     function start_stop(value) {
@@ -146,7 +146,7 @@
                 var randomIndex = Math.floor(Math.random() * nums.length);
         // ランダムに選ばれた要素
                 var selectedItem = nums[randomIndex];
-                // whileの処理がTrueならdoに戻る
+                // whileの処理がTrueなら(抽選済みなら)doに戻る
             }while(selected_numbers.includes(selectedItem.textContent));
         // 抽選済みでなければ抽選結果を表示
             if(parseInt(selectedItem.textContent)<=15){
@@ -164,8 +164,7 @@
             else if(parseInt(selectedItem.textContent)>=61 && parseInt(selectedItem.textContent)<=75){
                 document.getElementById("heading").innerHTML="O"+selectedItem.textContent;
             }
-            // document.getElementById("heading").innerHTML=selectedItem.textContent;
-            // 一度選ばれた番号を除外
+            // 抽選した番号を除外
             selected_numbers.push(selectedItem.textContent);
             // 新しい背景色を反映させるためにclassを追加
             selectedItem.classList.add("selected");

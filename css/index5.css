@@ -1,0 +1,64 @@
+.head_title {
+    display: flex;
+    margin-left: 150px;
+    padding-top: 10px;
+}
+
+h1 {
+    font-size: large;
+    /* margin-left: 150px; */
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 60%;
+}
+
+.logo_text {
+    margin-top: 15px;
+}
+
+.navi {
+    display: flex;
+    list-style-type: none;
+}
+
+li {
+    margin-left: 50px;
+    font-size: small;
+}
+
+.nav_li {
+    margin-left: 350px;
+}
+
+.top_text {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 50px;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    height: 35px;
+    border: 0px;
+    border-radius: 3px;
+    background-color: cornflowerblue;
+    margin-left: 500px;
+    margin-top: 10px;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+}
+
+#home {
+    background-image: url(../img/index5-2.jpg);
+    min-height: 100vh;
+}
