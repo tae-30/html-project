@@ -9,13 +9,15 @@
 
     <style>
         .number li.hit {
-            background: #004c8c;
-            color: #fff;
+            background: #000000;
+            color: #ffffff;
             border-radius: 50px;
+            text-shadow: 0 0 10px#ff0000;
+            opacity: 80%;
         }
 
         .number li.selected {
-            background: black;
+            background: rgb(123, 0, 255);
             border-radius: 50px;
         }
     </style>
@@ -23,6 +25,7 @@
 </head>
 
 <body>
+
     <div class="whole"> <!-- 全体　-->
         <!-- result表示タグ -->
         <div id="heading" class="heading"></div> <!-- 選出数字、見出し部分-->
@@ -105,10 +108,16 @@
             <li class="hit">75</li>
         </ul>
         <div class="whole_buttun"> <!-- スタート、ストップ　ボタン-->
-            <input type="button" id="button" value="START" onclick="start_stop(1)">
+            <input class="button" type="button" id="button" value="START" onclick="start_stop(1)">
             <p id="end"></p>
             <!-- <input type="button" id="test" value=""> -->
             <audio id="sound-pass"></audio>
+        </div>
+        <div class="doga">
+            <video autoplay muted loop>
+                <source src="img/back.mp4" type="video/mp4">
+                再生できんな
+            </video>
         </div>
         <audio id="sound-play" preload="auto">
             <source src="start.mp3" type="audio/mp3">
@@ -116,6 +125,7 @@
         <audio id="sound-pause" preload="auto">
             <source src="pause.mp3" type="audio/mp3">
         </audio>
+
     </div>
     <script>
         // 抽選済番号を格納する空のリスト
