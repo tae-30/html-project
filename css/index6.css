@@ -1,0 +1,80 @@
+.top {
+    text-align: center;
+    font-size: small;
+    margin-top: 40px;
+}
+
+.top_text {
+    display: flex;
+}
+
+.top_p {
+    margin-left: 180px;
+}
+
+p {
+    margin-left: 20px;
+    font-size: smaller;
+}
+
+.top_right {
+    margin-left: 300px;
+}
+
+.header_hr {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+img {
+    width: 350px;
+    height: 400px;
+    margin-left: 180px;
+}
+
+.main_text {
+    display: flex;
+    margin-right: 100px;
+}
+
+.main_hr {
+    margin-left: 50px;
+    width: 420px;
+    /* padding-top: 100px; */
+}
+
+h2 {
+    margin-left: 50px;
+    font-size: large;
+}
+
+.main_p {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 30px;
+}
+
+.price_text {
+    display: flex;
+}
+
+.price {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.tax {
+    margin-top: 28px;
+    margin-left: 2px;
+}
+
+.line {
+    border-collapse: collapse;
+    margin-left: 50px;
+}
+
+.line th,
+.line td {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
