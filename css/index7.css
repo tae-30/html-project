@@ -1,5 +1,6 @@
 .coulm_flex {
     display: flex;
+    /* position: relative; */
 }
 
 h1 {
@@ -20,9 +21,13 @@ img {
     margin-left: 50px;
 }
 
-.rigth_coulm {
+.left_coulm {
     /* 固定 */
-    position: absolute;
+    position: fixed;
+}
+
+.img1 {
+    margin-left: 170px;
 }
 
 .left_coulm2 {
@@ -44,6 +49,7 @@ img {
 
 .imgflex2 {
     display: flex;
+    margin-top: 30px;
 }
 
 .coulm2_img {
