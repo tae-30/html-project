@@ -111,7 +111,9 @@
             <input class="button" type="button" id="button" value="START" onclick="start_stop(1)">
             <p id="end"></p>
             <!-- <input type="button" id="test" value=""> -->
-            <audio id="sound-pass"></audio>
+            <audio id="background-music" preload="auto">
+                <source src="music/bingo_music.mp4" type="audio/mp3">
+            </audio>
         </div>
         <div class="doga">
             <video autoplay muted loop>
@@ -128,6 +130,7 @@
 
     </div>
     <script src="js/bingo.js">
+
     </script>
 </body>
 

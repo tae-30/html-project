@@ -14,6 +14,11 @@ function start_stop(value) {
         document.getElementById("button").onclick = function () { start_stop(0) };
         start_displaying_numbers();
 
+        // BGMを再生
+        var bgm = document.getElementById("background-music");
+        bgm.currentTime = 0; // 音楽を最初から再生
+        bgm.play(); // 再生
+
     }
 
 
