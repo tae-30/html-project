@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Playfair+Display", serif;
+    background-color: #2b3c61;
+}
+
 
 .top {
-    background-color: bisque;
+    background-color: #1f2b45;
     position: fixed;
     display: flex;
     width: 100%;
@@ -15,12 +20,16 @@
 }
 
 .text1 {
-    margin-top: 0px;
+    font-family: "Playfair+Display", serif;
+    color: white;
+    font-size: x-large;
+    margin-top: 1cqmin;
     margin-bottom: 0px;
 }
 
 .text2 {
-    font-size: x-large;
+    color: white;
+    font-size: x-small;
     margin-top: 0px;
 }
 
@@ -29,9 +38,12 @@
 }
 
 .buy_button {
+    color: white;
+    background-color: #1f2b45;
+    border: 1px solid white;
     width: 50px;
     height: 30px;
-    margin-left: 200px;
+    margin-left: 180px;
 }
 
 .line {
@@ -39,17 +51,17 @@
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
-    height: 20px;
+    height: 15px;
     cursor: pointer;
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-top: 8px;
+    margin-left: 15px;
 }
 
 .line span {
     display: block;
-    height: 2px;
-    width: 100%;
-    background-color: #333;
+    height: 1px;
+    width: 80%;
+    background-color: white;
     border-radius: 2px;
 }
 
@@ -64,13 +76,14 @@
 }
 
 .img1 {
-    width: 1000px;
-    height: 450px;
-    margin-top: 100px;
+    width: 1155px;
+    height: 600px;
+    margin-top: 70px;
     margin-left: 0px;
 }
 
 .suggest_content p {
+    color: white;
     font-size: x-large;
     text-align: center;
     margin-top: 50px;
@@ -80,18 +93,18 @@
 
 .flex_img {
     display: flex;
-    margin-left: 250px;
+    margin-left: 220px;
 }
 
 .flex_img img {
     width: 200px;
     height: 200px;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 
 table {
-    background-color: bisque;
-    border-color: bisque;
+    background-color: #1f2b45;
+    border-color: #1f2b45;
 
 }
 
@@ -99,75 +112,169 @@ td {
     border: none;
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
-    background-color: bisque;
+    background-color: lightblue;
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
-    background-color: bisque;
-    border-color: bisque;
+    background-color: lightblue;
+    border-color: lightblue;
     position: relative;
-}
+} */
 
 /* チェック時のマークを表示 */
-input[type="checkbox"]:checked::before {
+/* input[type="checkbox"]:checked::before {
     border: 2px solid #fff;
     content: "✔";
-    /* チェックマーク */
     color: #333;
-    /* チェックマークの色 */
     font-size: 16px;
     position: absolute;
     left: 2px;
     top: 4px;
-}
+} */
 
 
 .flex_contentText {
     display: flex;
+    font-size: smaller;
+}
+
+.flex_contentText table {
+    width: 230px;
+    height: 100px;
+    padding: 8px;
 }
 
 .contentText {
-    margin-left: 240px;
+    color: white;
+    margin-left: 200px;
 }
 
 .contentText2 {
-    margin-left: 30px;
+    color: white;
+    margin-left: 60px;
 }
 
 .contentText3 {
-    margin-left: 30px;
+    color: white;
+    margin-left: 55px;
 }
 
 .under_text {
+    color: white;
+    font-size: xx-large;
     text-align: center;
     margin-top: 50px;
 }
 
 .under_text u {
-    text-decoration-color: bisque;
+    text-decoration-color: #1f2b45;
     text-decoration-thickness: 5px;
 }
 
 .explainContent {
     display: flex;
-    background-color: bisque;
+    background-color: #1f2b45;
     margin-top: 50px;
 }
 
+.explainContent_inner {
+    display: flex;
+    flex-direction: column;
+}
+
 .explainContent img {
-    width: 380px;
-    height: 400px;
+    width: 410px;
+    height: 100%;
+    margin-right: 50px;
     margin-left: 200px;
 }
 
-.explainContent p {
+.explain_top {
+    color: white;
     font-size: larger;
     text-align: left;
     margin-top: 80px;
-    padding-right: 200px;
+    padding-right: 180px;
+}
+
+.explainContent_inner table {
+    width: 180px;
+}
+
+.explainContent_inner td {
+    color: white;
+    border: 2px solid white;
+    padding-left: 10px;
+    margin-top: 0px
+}
+
+.explain {
+    color: white;
+    font-size: medium;
+    margin-top: 20px;
+    padding-right: 180px;
+}
+
+.item_buy_all {
+    display: flex;
+}
+
+.item_buy {
+    margin-top: 40px;
+    margin-left: 240px;
+}
+
+.item_buy2 {
+    margin-top: 40px;
+}
+
+.item_buy2 img {
+    width: 280px;
+    height: 120px;
+}
+
+.item_buy img {
+    width: 280px;
+    height: 120px;
+}
+
+.item_buyTable2 {
+    margin-left: 100px;
+}
+
+.closeContent {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    text-align: center;
+}
+
+.closeContent.show {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.itemBuy_button {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 30px;
+}
+
+.LimitedItem_text {
+    color: white;
+    width: 200px;
+    height: 40px;
+    font-size: x-large;
+    background-color: #1f2b45;
+    margin-top: 40px;
+    margin-left: 470px;
+    padding-top: 4px;
+    padding-left: 17px;
 }
